@@ -1,0 +1,7 @@
+streamlit
+nltk
+scikit-learn
+numpy
+pypdf
+sentence-transformers
+google-genai
