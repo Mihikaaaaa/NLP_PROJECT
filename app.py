@@ -80,7 +80,7 @@ with tab2:
     st.write("**Top TF-IDF keywords:**", [w for w, _ in top])
 
 # ---------- Unit IV: Transformer LLM for question answering / summarization ----------
-llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
+llm = ChatGoogleGenerativeAI(model="gemini-3.8-flash")
 prompt = ChatPromptTemplate.from_template("""
 You are a helpful document assistant. Using the document context below, answer the question in simple, clear language.
 Quote relevant facts, names, numbers or values directly from the document. If the question asks about a term or concept
