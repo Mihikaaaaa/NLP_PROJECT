@@ -8,7 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sentence_transformers import SentenceTransformer
 from google import genai
 
-MODEL = "gemini-3.7-flash"
+MODELS = ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-3.6-flash", "gemini-3.5-flash-lite"]
 st.set_page_config(page_title="NLP Chat with PDF", layout="wide")
 st.title("📄 NLP-Based Chat with Any PDF")
 
