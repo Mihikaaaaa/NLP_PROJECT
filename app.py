@@ -13,12 +13,12 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 
-st.set_page_config(page_title="NLP Medical Report Chatbot", layout="wide")
-st.title("🩺 NLP-Based Medical Report Chatbot")
+st.set_page_config(page_title="CHAT WITH PDF", layout="wide")
+st.title("CHAT WITH PDF🗣️")
 
 # ---------- Sidebar: API key, PDF, top-k ----------
 key = st.sidebar.text_input("GOOGLE_API_KEY", type="password")
-pdf = st.sidebar.file_uploader("Upload medical report (PDF)", type=["pdf"])
+pdf = st.sidebar.file_uploader("Upload your PDF", type=["pdf"])
 k = st.sidebar.slider("Top-K chunks", 1, 10, 4)
 if not key or pdf is None:
     st.info("Enter your Google API key and upload a PDF in the sidebar.")
@@ -59,7 +59,7 @@ chunks, vs = load_chunks(path), build_index(path)
 full_text = " ".join(c.page_content for c in chunks)
 
 # ---------- Tabs ----------
-tab1, tab2 = st.tabs(["💬 Chat with Report", "🔬 NLP Analysis"])
+tab1, tab2 = st.tabs(["💬 Chat with PDF", "🔬 NLP Analysis"])
 
 with tab2:
     st.caption("NLP techniques from the syllabus applied to your report")
@@ -80,7 +80,7 @@ with tab2:
     st.write("**Top TF-IDF keywords:**", [w for w, _ in top])
 
 # ---------- Unit IV: Transformer LLM for question answering / summarization ----------
-llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
+llm = ChatGoogleGenerativeAI(model="gemini-3.8-flash")
 prompt = ChatPromptTemplate.from_template("""
 You are a medical report assistant. Using the report context below, answer the question in simple language.
 Quote the patient's actual values from the report. If a medical term (e.g. bilirubin) is asked about,
